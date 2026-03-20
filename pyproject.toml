@@ -1,0 +1,25 @@
+[project]
+name = "da4-assignment2"
+version = "0.1.0"
+description = "DA4 Assignment 2: Panel data analysis of CO2 emissions and GDP"
+requires-python = ">=3.11"
+
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "statsmodels>=0.14",
+    "linearmodels>=6.0",
+    "wbdata>=1.0",
+    "jupyter>=1.0",
+    "nbconvert>=7.0",
+    "stargazer>=0.0.5",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ipykernel>=6.0",
+    "black>=24.0",
+    "ruff>=0.4",
+]
