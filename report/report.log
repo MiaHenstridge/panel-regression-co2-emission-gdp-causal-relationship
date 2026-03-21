@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2025.12.31)  21 MAR 2026 20:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2025.12.31)  21 MAR 2026 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -582,41 +582,41 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 85.
+(Font)              <10.95> on input line 83.
  [1
 
 {C:/Users/Asus/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/MikTex/fonts/enc/dvips/lm/lm-rm.enc}{D:/MikTex/fonts/enc/dvips/lm/lm-rmtt.enc}{D:/MikTex/fonts/enc/dvips/lm/lm-mathit.enc}] [2{D:/MikTex/fonts/enc/dvips/lm/lm-mathex.enc}{D:/MikTex/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 196--196
+Underfull \hbox (badness 1571) in paragraph at lines 194--194
 []|$\OT1/lmr/m/n/12 (+20) ^^A$ log GDP
  []
 
@@ -637,7 +637,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,14n,79p,1261b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/MikTex/fonts/type1/public/lm/lmbx12.pfb><D:/MikTex/fonts/type1/public/lm/lmex10.pfb><D:/MikTex/fonts/type1/public/lm/lmmi10.pfb><D:/MikTex/fonts/type1/public/lm/lmmi12.pfb><D:/MikTex/fonts/type1/public/lm/lmmi8.pfb><D:/MikTex/fonts/type1/public/lm/lmr10.pfb><D:/MikTex/fonts/type1/public/lm/lmr12.pfb><D:/MikTex/fonts/type1/public/lm/lmr8.pfb><D:/MikTex/fonts/type1/public/lm/lmsy10.pfb><D:/MikTex/fonts/type1/public/lm/lmsy8.pfb><D:/MikTex/fonts/type1/public/lm/lmtt12.pfb>
-Output written on report.pdf (6 pages, 198354 bytes).
+Output written on report.pdf (6 pages, 198345 bytes).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 500000)
