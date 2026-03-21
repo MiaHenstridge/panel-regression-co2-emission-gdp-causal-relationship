@@ -51,24 +51,15 @@
 \maketitle
 \thispagestyle{empty}
 
-% ── Abstract ──────────────────────────────────────────────────────────────────
-\begin{abstract}
-\noindent
-This report examines the relationship between GDP per capita and CO2 emissions per capita using panel data from the World Development Indicators (1992--2024). The analysis estimates cross-sectional OLS, first difference, and fixed effects models to assess the extent to which economic activity drives CO2 emissions. The analysis also extends several of these models with industry share of GDP as a potential confounder. [2--3 sentences summarizing main findings.]
-\end{abstract}
-
 \vspace{1em}
 \noindent\textbf{Data and code:} \href{https://github.com/MiaHenstridge/panel-regression-co2-emission-gdp-causal-relationship.git}{github.com/MiaHenstridge/panel-regression-co2-emission-gdp-causal-relationship.git}
 
-\bigskip
-\hrule
-\bigskip
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Data}
+\section{Introduction and Data Description}
 % ══════════════════════════════════════════════════════════════════════════════
 
-This analysis uses two series from the World Bank World Development Indicators: CO2 emissions per capita (metric tons, indicator \texttt{EN.GHG.CO2.PC.CE.AR5}) and GDP per capita in PPP current international dollars (\texttt{NY.GDP.PCAP.PP.CD}), covering 1992 to 2024, to explore the effect of economic activities on CO2 emissions. After dropping countries with low coverage (below 50\% non-missing observations), the dataset contains 192 units. Additionally, the analysis also uses Urbanization population as percentage of total population (\texttt{SP.URB.TOTL.IN.ZS}) as a confounder variable. CO2 emissions per capita and GDP per capita variables are log-transformed in all regressions, so their coefficients are interpretable as elasticities. Since urban population is already measured in percentage, no further transformation is necessary.
+This analysis uses two series from the World Bank World Development Indicators: CO2 emissions per capita (metric tons, indicator \texttt{EN.GHG.CO2.PC.CE.AR5}) and GDP per capita in PPP current international dollars (\texttt{NY.GDP.PCAP.PP.CD}), covering 1992 to 2024, to explore the effect of economic activities on CO2 emissions. After dropping countries with low coverage (below 50\% non-missing observations), the dataset contains 192 units. Additionally, the analysis also uses Urbanization population as percentage of total population (\texttt{SP.URB.TOTL.IN.ZS}) as a confounder variable. CO2 emissions per capita and GDP per capita variables are log-transformed in all regressions, so their coefficients are interpretable as elasticities. Since urban population is already measured in percentage point, no further transformation is necessary.
 
 \subsection{Coverage and Sample Selection}
 
@@ -104,13 +95,13 @@ Total observations  & 6336 \\
 \begin{threeparttable}
 \caption{Summary Statistics}
 \label{tab:sumstats}
-\begin{tabularx}{0.9\textwidth}{Xrrrr}
+\begin{tabularx}{\textwidth}{Xrrrrr}
 \toprule
-\textbf{Variable} & \textbf{Mean} & \textbf{SD} & \textbf{Min} & \textbf{Max} \\
+\textbf{Variable} & \textbf{Mean} & \textbf{SD} & \textbf{Min} & \textbf{Max} & \textbf{Missing(\%)}\\
 \midrule
-CO2 per capita (metric tons)     & 4.92 & 9.59 & 0.00 & 202.87\\
-GDP per capita (PPP, current USD)   & 17683.99 & 21614.46 & 254.39 & 180939.44\\
-Urban population (\%)       & 56.73 & 23.77 & 5.66 & 100.00 \\
+CO2 per capita (metric tons)        & 4.92      & 9.59      & 0.00      & 202.87    & 0.00\\[0.3em]
+GDP per capita (PPP, current USD)   & 17683.99  & 21614.46  & 254.39    & 180939.44 & 1.74\\[0.3em]
+Urban population (\%)               & 56.73     & 23.77     & 5.66      & 100.00    & 0.00\\[0.3em]
 \bottomrule
 \end{tabularx}
 \end{threeparttable}
@@ -159,7 +150,7 @@ The first difference and fix effects models show a dampened estimates after abso
 
 Finally, the FE model which exploits the within-country variation over time while controlling for country-specific levels and global annual shocks, yields an elasticity of 0.44\%. This means a 1\% higher in GDP per capita growth compared to a country's average is associated with a 0.44\% increase in CO2 emission per capita growth compared to the same country's average.
 
-The consistent decline in the elasticity observed from the cross-section OLS to FD and FE suggests that a substantial portion of the raw GDP-CO2 correlation is likely attributable to between-country differences in economic structure or other factors rather than a causal within-country effect of economic growth on emissions.
+The consistent decline in the elasticity observed from the cross-section OLS to FD and FE suggests that a substantial portion of the raw GDP-CO2 correlation is likely attributable to between-country differences rather than a causal within-country effect of economic growth on emissions.
 
 % ── Table 3: Main results ─────────────────────────────────────────────────────
 \begin{table}[H]
@@ -173,11 +164,11 @@ The consistent decline in the elasticity observed from the cross-section OLS to 
 \cmidrule(lr){2-3} \cmidrule(lr){4-6} \cmidrule(lr){7-7}
 & 2005 & Latest & $K=0$ & $K=2$ & $K=6$ & \\
 \midrule
-log GDP p.c.            & 1.2180*** & 1.0599*** & - & - & - & 0.4414*** \\
-                        & (0.0679)  & (0.0646)  & - & - & - & (0.0747) \\[0.3em]
+log GDP p.c.                    & 1.2180*** & 1.0599*** & - & - & - & 0.4414*** \\
+                                & (0.0679)  & (0.0646)  & - & - & - & (0.0747) \\[0.3em]
 
-$\Delta$ log GDP p.c.   & - & - & 0.3195*** & 0.2708*** & 0.2687*** & - \\
-                        & - & - & (0.0481)  & (0.0482)  & (0.0520)  & - \\[0.3em]
+$\Delta$ log GDP p.c.           & - & - & 0.3195*** & 0.2708*** & 0.2687*** & - \\
+                                & - & - & (0.0481)  & (0.0482)  & (0.0520)  & - \\[0.3em]
 
 $\Delta$ log GDP p.c. $_{t-1}$  & - & - & - & 0.0191 & 0.0381 & -\\
                                 & - & - & - & (0.0472) & (0.0495) & -\\[0.3em]
@@ -205,7 +196,7 @@ R$^2$                   & 0.640 & 0.634 & 0.023 & 0.019 & 0.019 & 0.069 \\
 \end{tabularx}
 \begin{tablenotes}
 \small
-\item Standard errors in parentheses. HC3 robust SEs are reported for OLS and FD models; clustered SEs are reported for FD and FE models. R$^2$ within are reported for FD and FE models. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
+\item Standard errors in parentheses. HC3 robust SEs are reported for OLS and FD models; clustered SEs are reported for FD and FE models. R$^2$ within are reported for FD and FE models. Due to log transformation, models are estimated using only observations with both positive CO2 emission per capita and GDP per capita. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -214,9 +205,11 @@ R$^2$                   & 0.640 & 0.634 & 0.023 & 0.019 & 0.019 & 0.069 \\
 \section{Extension of analysis: Urban Population as a Confounder}
 % ══════════════════════════════════════════════════════════════════════════════
 
-To examine whether the GDP-CO2 relationship is confounded by country-specific economic structure, this analysis adds countries' urban population (\%) as a potential confounder to models 1, 4, and 6. Urbanization is expected to be positively correlated with CO2 emissions independently of GDP per capita due to increased energy demand for transport, residential heating and cooling, and industrial activities concentrated in cities. Thus, a country with a higher urban population is likely to have higher emission intensity.
+To examine whether the GDP-CO2 relationship is confounded by country-specific attributes, this analysis adds countries' urban population (\%) as a potential confounder to models 1, 4, and 6. Urbanization is expected to be positively correlated with CO2 emissions independently of GDP per capita, driven by increased energy demand for transport, residential heating and cooling, and industrial activities concentrated in cities. Thus, a country with a higher urban population is likely to have higher emission intensity and omitting this variable may have biased the GDP coefficient upward.
 
-Table \ref{tab:results-confounder} reports the results after adding urban population as a confounder to models 1, 4, and 6. 
+Table \ref{tab:results-confounder} reports the results after adding urban population as a confounder to models 1, 4, and 6. The GDP coefficients are dampened across the cross-section OLS and FE models compared to the initial estimates in Table \ref{tab:results}, falling from 1.22 to 1.18 in the cross-section OLS and from 0.44 to 0.41 in the FE model. This result is consistent with the hypothesis that part of the baseline GDP coefficient was inflated by omitted variable bias. The dampening is however modest, suggesting that economic activities retains most of its explanatory power independently of urbanization.
+
+The urbanization coefficient is insignificant in the OLS model but positive and significant in the FD and FE models. In particular, the FE estimate implies that a one percentage point increase in a country's urban population compared to its average is associated with a 1.9\% increase compared to its average in CO2 emission per capita. The FD coefficient implies that a one percentage point increase in year-on-year growth of urban population is associated with a 1.1\% increase in year-on-year CO2 emission per capita.
 
 % ── Table 4: Results with Confounder ─────────────────────────────────────────────────────
 \begin{table}[H]
@@ -254,7 +247,7 @@ R$^2$                   & 0.640 & 0.021 & 0.100 \\
 \end{tabularx}
 \begin{tablenotes}
 \small
-\item Standard errors in parentheses. HC3 robust SEs are reported for OLS and FD models; clustered SEs are reported for FD and FE models. R$^2$ within are reported for FD and FE models. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
+\item Standard errors in parentheses. HC3 robust SEs are reported for OLS and FD models; clustered SEs are reported for FD and FE models. R$^2$ within are reported for FD and FE models. Due to log transformation, models are estimated using only observations with both positive CO2 emission per capita and GDP per capita. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -263,7 +256,7 @@ R$^2$                   & 0.640 & 0.021 & 0.100 \\
 \section{Conclusion}
 % ══════════════════════════════════════════════════════════════════════════════
 
-[2--4 sentence summary of findings: what is the elasticity, how does it change across models, what does the confounder analysis show.]
+This analysis examines the relationship between economic activity and CO2 emissions using cross-sectional OLS, first difference and fixed effects models on a panel of 192 countries between 1992 and 2024. The estimated elasticities declines substantially as the analysis move from cross-sectional OLS to estimators that absorb time-invariant confounders. This suggest that much of the raw GDP-CO2 correlation reflects between-country differences that remain persistent over time rather than a causal within-country effect. Adding urbanization rate as a confounder also modestly dampens the GDP coefficient, confirming a mild upward bias in the baseline estimates, though GDP remains a significant predictor of emissions across all specifications.
 
 % ══════════════════════════════════════════════════════════════════════════════
 \end{document}
